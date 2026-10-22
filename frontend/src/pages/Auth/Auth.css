@@ -29,6 +29,7 @@
   width:100%; font-family: var(--sans); font-size:.94rem;
   border:1px solid var(--line); border-radius: var(--radius);
   padding:.8em; background:#fff; color: var(--ink);
+  box-sizing: border-box;
 }
 .field input:focus{ outline: 2px solid var(--gold-deep); outline-offset:1px; }
 
@@ -50,4 +51,54 @@
 .form-error{
   background:#FBE7E5; border:1px solid #e4c3ba; color:#8a2f22;
   border-radius: var(--radius); padding:.7em .9em; font-size:.85rem; margin-bottom:1.1rem;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 992px){
+  .split-left{ padding: 3rem 2.2rem; }
+  .split-left h1{ font-size: 2.1rem; }
+  .split-right{ padding: 2.5rem 2rem; }
+}
+
+/* ---------- Mobile: stack panels ---------- */
+@media (max-width: 768px){
+  .split-shell{ flex-direction: column; min-height: 100vh; }
+
+  .split-left{
+    flex: none; padding: 2rem 1.5rem 1.8rem;
+    justify-content: flex-start;
+  }
+  .split-left .brand-mark{ margin-bottom: 1.2rem; }
+  .split-left h1{ font-size: 1.7rem; max-width: none; margin-bottom: .7rem; }
+  .split-left > p{ font-size: .92rem; max-width: none; margin-bottom: 0; }
+
+  /* hide the long marketing bits so the form is reachable quickly */
+  .split-features,
+  .split-foot{ display: none; }
+
+  .split-right{
+    flex: 1; align-items: flex-start;
+    padding: 2rem 1.5rem 2.5rem;
+  }
+  .split-form{ max-width: 100%; }
+  .split-form h2{ font-size: 1.55rem; }
+  .split-form p.lede{ margin-bottom: 1.5rem; }
+
+  /* 16px stops iOS from zooming in on focus */
+  .field input{ font-size: 1rem; padding: .85em; }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 480px){
+  .split-left{ padding: 1.5rem 1.1rem 1.4rem; }
+  .split-left h1{ font-size: 1.45rem; }
+  .split-left > p{ display: none; }
+
+  .split-right{ padding: 1.6rem 1.1rem 2rem; }
+
+  /* signup's two-column row (e.g. password / confirm) stacks */
+  .field-row2{ grid-template-columns: 1fr; gap: 0; }
+
+  .password-row{ flex-wrap: wrap; gap: .3rem; }
+  .checkbox-row{ align-items: flex-start; }
 }
